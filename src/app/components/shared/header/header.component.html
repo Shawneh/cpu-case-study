@@ -1,0 +1,35 @@
+<mat-toolbar id="header" class='mat-elevation-z6'>
+
+  <!--Navigation Buttons-->
+  <img src='../../../../assets/images/CPU-Logo.png' id="header-logo" routerLink="dashboard">
+  <button mat-button routerLink="dashboard">Dashboard</button>
+  <button mat-button [matMenuTriggerFor]="rolesMenu">Roles</button>
+
+  <!--Roles Main Menu-->
+  <mat-menu #rolesMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="facultyStaffMenu" routerLink="faculty-staff" >Faculty & Staff</button>
+    <button mat-menu-item routerLink="maintenance">Maintenance</button>
+    <button mat-menu-item routerLink="management">Management</button>
+    <button mat-menu-item [matMenuTriggerFor]="shippingReceivingMenu" routerLink="shipping-receiving">Shipping & Receiving</button>
+    <button mat-menu-item routerLink="software-user">Software User</button>
+  </mat-menu>
+
+  <!--Faculty & Staff Submenu-->
+  <mat-menu #facultyStaffMenu="matMenu">
+    <button mat-menu-item routerLink="faculty-staff/overview">Overview</button>
+    <button mat-menu-item routerLink="faculty-staff/inquiry">Resource Inquiry</button>
+  </mat-menu>
+
+  <mat-menu #shippingReceivingMenu="matMenu">
+    <button mat-menu-item routerLink="shipping-receiving/overview">Overview</button>
+    <button mat-menu-item routerLink="shipping-receiving/add-computer">Add New Computer</button>
+  </mat-menu>
+
+  <span class="fill-remaining-space"></span>
+
+  <!--Github Link-->
+  <a href="https://github.com/Shawneh">
+    <img src="../../../../assets/images/github.png" id="github-logo" href>
+  </a>
+
+</mat-toolbar>

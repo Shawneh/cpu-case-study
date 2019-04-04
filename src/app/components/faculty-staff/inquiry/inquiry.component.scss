@@ -1,0 +1,41 @@
+@import '../../../../styles.scss';
+
+mat-card {
+    width: 80%;
+    height: 80%;
+    background-color: darken($light-shade, 3%) !important;
+}
+
+mat-card:hover {
+    cursor: pointer;
+    opacity: .8;
+    background-color: darken($light-shade, 5%) !important;
+}
+
+mat-card-content {
+    text-align: center;
+}
+
+mat-grid-list {
+    margin-top: 16px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+mat-grid-tile {
+    height: 256px;
+    padding-top: 0 !important;
+}
+
+mat-horizontal-stepper {
+    height: 100%;
+}
+
+.mat-card-header {
+    text-align: center;
+    display: inline;
+}
+
+.mat-grid-tile {
+    display: block !important;
+}

@@ -1,0 +1,102 @@
+<p class='mat-headline center'>Add New Computer Form</p>
+<mat-divider [inset]="true" class='mat-divider-right-margin'></mat-divider>
+
+<mat-vertical-stepper [linear]="false">
+    <mat-step [stepControl]="preliminaryForm">
+    <form [formGroup]="preliminaryForm" class="add-comp-form">
+    <ng-template matStepLabel>Preliminary Information</ng-template>
+
+        <mat-form-field class="form-float-left" required>
+            <mat-label>Computer Type</mat-label>
+            <mat-select formControlName="computerType" [(value)]="selectedFormType" required>
+                <mat-option *ngFor="let computerType of computerTypes" [value]="computerType.type">
+                    {{computerType.type}}
+                </mat-option>
+            </mat-select> 
+        </mat-form-field>
+        <mat-form-field class="form-float-left" required>
+            <input matInput formControlName="serialNo" placeholder="Serial Number" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-float-left" required>
+            <input type="text" matInput formControlName="brand" placeholder="Brand Name" [matAutocomplete]="brandAuto" required>
+            <mat-autocomplete #brandAuto="matAutocomplete">
+                <mat-option *ngFor="let brand of filteredBrands | async" [value]="brand">
+                    {{brand}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="form-float-left" required>
+            <input matInput formControlName="model" placeholder="Model" required>
+        </mat-form-field>
+
+        <div class="stepper-button">
+            <button mat-raised-button matStepperNext color="primary">Next</button>
+        </div>
+    </form>
+    </mat-step>
+
+    <mat-step [stepControl]="specificationForm">
+        <form [formGroup]="specificationForm" class="add-comp-form">
+        <ng-template matStepLabel>{{selectedFormType}} Specifications</ng-template>
+
+            <mat-form-field class="form-float-left" required>
+                <input type="text" matInput formControlName="operatingSystem" placeholder="Operating System" [matAutocomplete]="osAuto" required>
+                <mat-autocomplete #osAuto="matAutocomplete">
+                    <mat-option *ngFor="let os of filteredOS | async" [value]="os">
+                        {{os}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field class="form-float-left" required>
+                <mat-label>Chip Architecture</mat-label>
+                <mat-select formControlName="chipArchitecture" required>
+                    <mat-option *ngFor="let chip of chipTypes" [value]="chip">
+                        {{chip}}
+                    </mat-option>
+                </mat-select> 
+            </mat-form-field>
+
+            <mat-form-field class="form-float-left" required>
+                <input type="text" matInput formControlName="processorSpeed" placeholder="Processor Speed (GHz)" required>
+            </mat-form-field>
+
+            <mat-form-field class="form-float-left" required>
+                <input type="text" matInput formControlName="ramAmount" placeholder="RAM (GB)" required>
+            </mat-form-field>
+
+            <mat-form-field class="form-float-left" required>
+                <input type="text" matInput formControlName="storageAmount" placeholder="Storage (GB)" required>
+            </mat-form-field>
+
+            <div class="stepper-button">
+                <button mat-raised-button matStepperNext color="primary">Next</button>
+                <button mat-raised-button matStepperPrevious >Back</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="optionalForm">
+        <form [formGroup]="optionalForm" class="add-comp-form">
+        <ng-template matStepLabel>Other Information</ng-template>
+            <mat-form-field class="form-float-left" required>
+                <mat-label>Computer Type</mat-label>
+                <mat-select formControlName="computerType">
+                    <mat-option *ngFor="let computerType of computerTypes" [value]="computerType.type">
+                        {{computerType.type}}
+                    </mat-option>
+                </mat-select> 
+            </mat-form-field>
+            <mat-form-field class="form-float-left" required>
+                <input matInput formControlName="serialNo" placeholder="Serial Number" required>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button matStepperNext color="primary">Next</button>
+            </div>
+            <div>
+                <button mat-raised-button matStepperPrevious>Back</button>
+            </div>
+        </form>
+    </mat-step>
+</mat-vertical-stepper>

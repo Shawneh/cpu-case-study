@@ -1,0 +1,38 @@
+<p class='mat-headline center'>Resource Inquiry Form</p>
+<mat-divider [inset]="true" class='mat-divider-right-margin'></mat-divider>
+
+<mat-horizontal-stepper #inquiryStepper>
+
+  <mat-step [stepControl]="firstFormGroup" [completed]="false">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Label One</ng-template>
+      <mat-form-field>
+        <input matInput formControlName="nameOne" placeholder="Brand" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput formControlName="nameThree" placeholder="Model">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput formControlName="nameFour" placeholder="Specs">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" [completed]="false">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Label One</ng-template>
+      <mat-form-field>
+        <input matInput formControlName="nameTwo">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-horizontal-stepper>

@@ -1,0 +1,95 @@
+//This sheet contains all colors for the website
+//Links to styles.scss in the `src` directory
+
+/*----------------
+Color Theme
+
+Primary - #2f839a
+
+Light Accent - #8492a9
+Light Shade - #edf2f0
+
+Dark Accent - #836372
+Dark Shade - #282e33
+
+------------------*/
+
+$light-shade: #edf2f0;
+$dark-shade: #292f36;
+
+$primary-default: #573280; 
+
+$primary-accent: #81f4e1;
+
+$dark-primary-text: #292f36;
+$light-primary-text: rgba(white, 0.87);
+
+$primary-palette: (
+    50 : #ebe6f0,
+    100 : #cdc2d9,
+    200 : #ab99c0,
+    300 : #8970a6,
+    400 : #705193,
+    500 : #573280,
+    600 : #4f2d78,
+    700 : #46266d,
+    800 : #3c1f63,
+    900 : #2c1350,
+    A100 : #b58bff,
+    A200 : #9458ff,
+    A400 : #7425ff,
+    A700 : #640bff,
+    contrast: (
+        50 :  #292f36,
+        100 : #292f36,
+        200 : #292f36,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #292f36,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$accent-palette: (
+    50 : #f0fefb,
+    100 : #d9fcf6,
+    200 : #c0faf0,
+    300 : #a7f7ea,
+    400 : #94f6e6,
+    500 : #81f4e1,
+    600 : #79f3dd,
+    700 : #6ef1d9,
+    800 : #64efd5,
+    900 : #51eccd,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #e4fff9,
+    A700 : #cafff4,
+    contrast: (
+        50 : #292f36,
+        100 : #292f36,
+        200 : #292f36,
+        300 : #292f36,
+        400 : #292f36,
+        500 : #292f36,
+        600 : #292f36,
+        700 : #292f36,
+        800 : #292f36,
+        900 : #292f36,
+        A100 : #292f36,
+        A200 : #292f36,
+        A400 : #292f36,
+        A700 : #292f36,
+    )
+);
+
+// CLASSES
+//----------

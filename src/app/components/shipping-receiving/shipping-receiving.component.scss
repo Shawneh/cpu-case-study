@@ -1,0 +1,27 @@
+@import '../../../styles.scss';
+
+mat-sidenav {
+    padding: 32px 32px 0px 16px;
+    background-color: lighten($primary-default, 5%) !important;
+
+    text-align: center;
+}
+
+#close-side-nav-btn {
+    background-color: $light-shade;
+    color: $primary-default;
+}
+
+#open-side-nav-btn {
+    left: 80px;
+    background-color: $primary-default;
+    color: $light-shade;
+    position: absolute;
+    float: left;
+}
+
+#sidenav-container {
+    padding: 16px 0 0 0;
+    top: 112px !important;
+    text-align: center;
+}

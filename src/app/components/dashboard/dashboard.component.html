@@ -1,0 +1,104 @@
+<h1 class="mat-display-2" id="dashboard-header">CPU Case Study</h1>
+<h1 class='mat-headline' id="dashboard-subheader">Choose a Role</h1>
+
+<mat-grid-list cols="5">
+
+  <mat-grid-tile>
+    <mat-card routerLink="../software-user">
+      <img src="../../../assets/images/dashboard/learning.png" class="dashboard-card-img">
+      <mat-card-header>
+        <mat-card-title> Software User </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <mat-divider [inset]="true"></mat-divider>
+        <br><br>
+        Lookup Available Software Packages
+        <br><br>
+        Report Issues with Software
+        <br><br>
+        Report Issues with Hardware
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card routerLink="../shipping-receiving">
+      <img src="../../../assets/images/dashboard/warehouse.png" class="dashboard-card-img">
+      <mat-card-header>
+        <mat-card-title> Shipping & Receiving </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <mat-divider [inset]="true"></mat-divider>
+        <br><br>
+        Log New Arrivals
+        <br><br>
+        View Scheduled Deliveries
+        <br><br>
+        *Something else they do*
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card routerLink="../maintenance">
+      <img src="../../../assets/images/dashboard/maintenance.png" class="dashboard-card-img">
+      <mat-card-header>
+        <mat-card-title> Maintenance </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <mat-divider [inset]="true"></mat-divider>
+        <br><br>
+        View Current Inventory
+        <br><br>
+        Install New Computers & Hardware
+        <br><br>
+        View & Fulfill Work Orders
+        <br><br>
+        Remove Broken Systems
+      </mat-card-content>
+      
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card routerLink="../management">
+      <img src="../../../assets/images/dashboard/hierarchical-structure.png" class="dashboard-card-img">
+      <mat-card-header>
+        <mat-card-title> Management </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <mat-divider [inset]="true"></mat-divider>
+        <br><br>
+        Create, Update & Delete Employees
+        <br><br>
+        Request Master Reports
+        <br><br>
+        *Something else they do*
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card routerLink="../faculty-staff">
+      <img src="../../../assets/images/dashboard/id-card.png" class="dashboard-card-img"> 
+      <mat-card-header>
+        <mat-card-title> Faculty & Staff </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <mat-divider [inset]="true"></mat-divider>
+        <br><br>
+        Submit Software Inquiries
+        <br><br>
+        Submit Hardware & Computer Inquiries
+        <br><br>
+        View Status of Inquiries
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>

@@ -1,0 +1,58 @@
+@import '../../../styles.scss';
+
+mat-card {
+    width: 85%;
+    height: 75%;
+    background-color: darken($light-shade, 3%) !important;
+}
+
+mat-card:hover {
+    cursor: pointer;
+    opacity: .8;
+    background-color: darken($light-shade, 5%) !important;
+}
+
+mat-card-content {
+    text-align: center;
+}
+
+mat-grid-list {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+mat-grid-tile {
+    height: 80%;
+}
+
+.dashboard-card-img {
+    width: 96px;
+    margin: 0 auto;
+    position: relative;
+    top: -48px;
+    
+    left: -webkit-calc(50% - 48px); //Chrome
+    left: -moz-calc(50% - 48px); //firefox
+    left: calc(50% - 48px); //IE
+}
+
+.mat-card-header {
+    text-align: center;
+    display: inline;
+}
+
+#dashboard-header {
+    width: 100%;
+    padding-top: 32px;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 32px;
+    color: $primary-default;
+}
+
+#dashboard-subheader {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: $dark-shade;
+}
