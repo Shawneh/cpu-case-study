@@ -4,8 +4,6 @@
 <mat-sidenav-container id="sidenav-container"
   (backdropClick)="sidenav.close()" fullscreen>
   <mat-sidenav #sidenav (keydown.escape)="sidenav.close()" layout-align="center" disableClose>
-    <a routerLink='overview' class="side-nav-link mat-tab-link" (click)="sidenav.close()">Overview</a>
-    <br><br>
     <a routerLink='add-computer' class="side-nav-link mat-tab-link" (click)="sidenav.close()">Add New Computer Form</a>
     <br><br>
     <button mat-button (click)="sidenav.close()" id="close-side-nav-btn">Close</button>

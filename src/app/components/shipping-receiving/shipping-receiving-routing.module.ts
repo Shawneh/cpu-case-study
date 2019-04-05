@@ -12,12 +12,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'overview',
+        redirectTo: 'add-computer',
         pathMatch: 'full'
-      },
-      {
-        path: 'overview',
-        component: OverviewComponent
       },
       {
         path: 'add-computer',
