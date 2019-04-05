@@ -6,7 +6,7 @@ mat-card {
     background-color: darken($light-shade, 3%) !important;
 }
 
-mat-card:hover {
+.selectable:hover {
     cursor: pointer;
     opacity: .8;
     background-color: darken($light-shade, 5%) !important;

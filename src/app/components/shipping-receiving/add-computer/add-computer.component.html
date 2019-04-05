@@ -1,7 +1,7 @@
 <p class='mat-headline center'>Add New Computer Form</p>
 <mat-divider [inset]="true" class='mat-divider-right-margin'></mat-divider>
 
-<mat-vertical-stepper [linear]="false">
+<mat-vertical-stepper #addComputerStepper [linear]="true">
     <mat-step [stepControl]="preliminaryForm">
     <form [formGroup]="preliminaryForm" class="add-comp-form">
     <ng-template matStepLabel>Preliminary Information</ng-template>
@@ -9,8 +9,8 @@
         <mat-form-field class="form-float-left" required>
             <mat-label>Computer Type</mat-label>
             <mat-select formControlName="computerType" [(value)]="selectedFormType" required>
-                <mat-option *ngFor="let computerType of computerTypes" [value]="computerType.type">
-                    {{computerType.type}}
+                <mat-option *ngFor="let computerType of computerTypes" [value]="computerType">
+                    {{computerType}}
                 </mat-option>
             </mat-select> 
         </mat-form-field>
@@ -72,30 +72,32 @@
 
             <div class="stepper-button">
                 <button mat-raised-button matStepperNext color="primary">Next</button>
-                <button mat-raised-button matStepperPrevious >Back</button>
+                <button mat-raised-button matStepperPrevious class="left-margin" >Back</button>
             </div>
         </form>
     </mat-step>
 
-    <mat-step [stepControl]="optionalForm">
-        <form [formGroup]="optionalForm" class="add-comp-form">
-        <ng-template matStepLabel>Other Information</ng-template>
+    <mat-step [stepControl]="purchaseForm">
+        <form [formGroup]="purchaseForm" (ngSubmit)="submitNewComputer()" class="add-comp-form">
+        <ng-template matStepLabel>Purchase Information</ng-template>
+ 
             <mat-form-field class="form-float-left" required>
-                <mat-label>Computer Type</mat-label>
-                <mat-select formControlName="computerType">
-                    <mat-option *ngFor="let computerType of computerTypes" [value]="computerType.type">
-                        {{computerType.type}}
-                    </mat-option>
-                </mat-select> 
+                <span matPrefix>$ &nbsp;</span>
+                <input matInput formControlName="price" placeholder="Purchase Price" required>
             </mat-form-field>
-            <mat-form-field class="form-float-left" required>
-                <input matInput formControlName="serialNo" placeholder="Serial Number" required>
+            <mat-form-field class="form-float-left">
+                <input matInput formControlName="purchaseDate" [matDatepicker]="purchaseDate" placeholder="Purchase Date" required>
+                <mat-datepicker-toggle matSuffix [for]="purchaseDate"></mat-datepicker-toggle>
+                <mat-datepicker #purchaseDate></mat-datepicker>
             </mat-form-field>
-            <div>
-                <button mat-raised-button matStepperNext color="primary">Next</button>
-            </div>
-            <div>
-                <button mat-raised-button matStepperPrevious>Back</button>
+            <mat-form-field class="form-float-left">
+                    <input matInput formControlName="warrantyExpiration" [matDatepicker]="warrantyExpiration" placeholder="Warranty Expiration Date">
+                    <mat-datepicker-toggle matSuffix [for]="warrantyExpiration"></mat-datepicker-toggle>
+                    <mat-datepicker #warrantyExpiration></mat-datepicker>
+                </mat-form-field>
+            <div class="stepper-button">
+                <button type="submit" mat-raised-button matStepperNext color="primary" (click)="showSubmittedSnackBar()">Submit</button>
+                <button mat-raised-button matStepperPrevious class="left-margin">Back</button>
             </div>
         </form>
     </mat-step>

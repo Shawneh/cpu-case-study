@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
-import { IComputerType } from '../../../interfaces/master.type';
+import { MatStepper } from '@angular/material/stepper';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { IComputerMaster } from '../../../interfaces/master.type';
 import { ComputerService } from '../../../services/tables/computer.service';
 
 @Component({
@@ -13,13 +15,14 @@ import { ComputerService } from '../../../services/tables/computer.service';
   styleUrls: ['./add-computer.component.scss']
 })
 export class AddComputerComponent implements OnInit {
+  @ViewChild('addComputerStepper')addComputerStepper: MatStepper;
 
   preliminaryForm: FormGroup;
   specificationForm: FormGroup;
-  optionalForm: FormGroup;
+  purchaseForm: FormGroup;
 
   brandNames: string[];
-  computerTypes: IComputerType[];
+  computerTypes: string[];
   chipTypes: string[];
   operatingSystems: string[];
 
@@ -29,7 +32,7 @@ export class AddComputerComponent implements OnInit {
   selectedFormType: string;
   selectedChipArch: string;
 
-  constructor(private formBuilder: FormBuilder, private compService: ComputerService) { }
+  constructor(private formBuilder: FormBuilder, private compService: ComputerService, private submittedSnackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -37,23 +40,47 @@ export class AddComputerComponent implements OnInit {
     this.computerTypes = this.compService.computerTypes;
     this.brandNames = this.compService.brands;
     this.chipTypes = this.compService.chipTypes;
+    this.operatingSystems = this.compService.operatingSystems;
 
-    this.preliminaryForm = this.formBuilder.group({
-      computerType: ['', [Validators.required]],
-      serialNo: ['', Validators.required],
-      model: ['', Validators.required],
-      brand: ['', Validators.required]
-    });
+    this.initForms();
 
-    // Setup Filtering for Brand Input
     this.filteredBrands = this.preliminaryForm.controls.brand.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filterBrand(value))
       );
 
-    // Specifications Form Setup
-    this.operatingSystems = this.compService.operatingSystems;
+    this.filteredOS = this.specificationForm.controls.operatingSystem.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filterOS(value))
+      );
+
+  }
+
+  private _filterBrand(value: string): string[] {
+
+    if (value !== null) {
+      const filterValue = value.toLowerCase();
+      return this.brandNames.filter(name => name.toLowerCase().startsWith(filterValue));
+    }
+  }
+
+  private _filterOS(value: string): string[] {
+
+    if (value !== null) {
+      const filterValue = value.toLowerCase();
+      return this.operatingSystems.filter(name => name.toLowerCase().startsWith(filterValue));
+    }
+  }
+
+  initForms() {
+    this.preliminaryForm = this.formBuilder.group({
+      computerType: ['', [Validators.required]],
+      serialNo: ['', Validators.required],
+      model: ['', Validators.required],
+      brand: ['', Validators.required]
+    });
 
     this.specificationForm = this.formBuilder.group({
       operatingSystem: ['', [Validators.required]],
@@ -63,30 +90,54 @@ export class AddComputerComponent implements OnInit {
       storageAmount: ['', Validators.required],
     });
 
-    // Setup Filtering for Brand Input
-    this.filteredOS = this.specificationForm.controls.operatingSystem.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filterOS(value))
-      );
-
-    this.optionalForm = this.formBuilder.group({
-      computerType: [''],
-      serialNo: ['']
+    this.purchaseForm = this.formBuilder.group({
+      price: ['', Validators.required],
+      purchaseDate: ['', Validators.required],
+      warrantyExpiration: ['']
     });
-
   }
 
-  private _filterBrand(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  submitNewComputer() {
+    if (this.preliminaryForm.invalid) {
+      return;
+    }
+    if (this.specificationForm.invalid) {
+      return;
+    }
+    if (this.purchaseForm.invalid) {
+      return;
+    }
 
-    return this.brandNames.filter(name => name.toLowerCase().startsWith(filterValue));
+    const newEntry: IComputerMaster = {
+      id: this.compService.computerMaster.length,
+      type: this.preliminaryForm.get('computerType').value,
+      serialNo: this.preliminaryForm.get('serialNo').value,
+      model: this.preliminaryForm.get('model').value,
+      brand: this.preliminaryForm.get('brand').value,
+      operatingSystem: this.specificationForm.get('operatingSystem').value,
+      chipArchitecture: this.specificationForm.get('chipArchitecture').value,
+      processorSpeed: this.specificationForm.get('processorSpeed').value,
+      ram: this.specificationForm.get('ramAmount').value,
+      storage: this.specificationForm.get('storageAmount').value,
+      price: this.purchaseForm.get('price').value,
+      purchaseDate: this.purchaseForm.get('purchaseDate').value,
+      warrantyExpiration: this.purchaseForm.get('warrantyExpiration').value
+    };
+
+    this.compService.computerMaster.push(newEntry);
+
+    this.preliminaryForm.reset();
+    this.specificationForm.reset();
+    this.purchaseForm.reset();
+    this.addComputerStepper.selectedIndex = 0;
+
+    console.log(this.compService.computerMaster);
   }
 
-  private _filterOS(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.operatingSystems.filter(name => name.toLowerCase().startsWith(filterValue));
+  showSubmittedSnackBar() {
+    this.submittedSnackBar.open('Computer Added!', 'Okay!', {
+      duration: 2000
+    });
   }
 
 }

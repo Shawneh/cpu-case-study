@@ -1,8 +1,3 @@
-export interface IComputerType {
-    id: number;
-    type: string;
-}
-
 export interface IComputerMaster {
     id: number;
     type: string;
@@ -14,6 +9,7 @@ export interface IComputerMaster {
     processorSpeed: number;
     ram: number;
     storage: number;
-    warrantyLength: number;
+    price: string;
     purchaseDate: Date;
+    warrantyExpiration: number;
 }

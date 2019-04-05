@@ -7,17 +7,17 @@
 
   <!--Roles Main Menu-->
   <mat-menu #rolesMenu="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="facultyStaffMenu" routerLink="faculty-staff" >Faculty & Staff</button>
+    <button mat-menu-item [matMenuTriggerFor]="facultyStaffMenu" routerLink="faculty-staff" disabled>Faculty & Staff (Coming Soon)</button>
     <button mat-menu-item routerLink="maintenance">Maintenance</button>
     <button mat-menu-item routerLink="management">Management</button>
     <button mat-menu-item [matMenuTriggerFor]="shippingReceivingMenu" routerLink="shipping-receiving">Shipping & Receiving</button>
-    <button mat-menu-item routerLink="software-user">Software User</button>
+    <button mat-menu-item routerLink="software-user" disabled>Software User (Coming Soon)</button>
   </mat-menu>
 
   <!--Faculty & Staff Submenu-->
   <mat-menu #facultyStaffMenu="matMenu">
-    <button mat-menu-item routerLink="faculty-staff/overview">Overview</button>
-    <button mat-menu-item routerLink="faculty-staff/inquiry">Resource Inquiry</button>
+    <button mat-menu-item routerLink="faculty-staff/overview" disabled>Overview</button>
+    <button mat-menu-item routerLink="faculty-staff/inquiry" disabled>Resource Inquiry</button>
   </mat-menu>
 
   <mat-menu #shippingReceivingMenu="matMenu">

@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { IComputerType } from '../../interfaces/master.type';
+import { IComputerMaster } from '../../interfaces/master.type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComputerService {
 
-  computerTypes: IComputerType[] = [
-    {id: 100, type: 'Desktop'},
-    {id: 101, type: 'Laptop'},
-    {id: 102, type: 'Tablet'}
+  computerTypes: string[] = [
+    'Desktop', 'Laptop', 'Tablet'
   ];
 
   brands: string[] = [
@@ -27,6 +25,8 @@ export class ComputerService {
     'Solus', 'Ubuntu', 'Unix',
     'Windows 10 S', 'Windows 10', 'Windows 8/8.1', 'Windows 7'
   ];
+
+  computerMaster: IComputerMaster[] = [];
 
   constructor() { }
 }
