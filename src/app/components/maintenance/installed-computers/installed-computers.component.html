@@ -1,0 +1,66 @@
+<p class='mat-headline center form-top-margin'>Installed Computers Report</p>
+<mat-divider [inset]="true" class='mat-divider-right-margin'></mat-divider>
+
+<mat-tab-group>
+  <mat-tab label="Installed">
+
+  <mat-form-field>
+    <input matInput (keyup)="applyInstalledFilter($event.target.value)" placeholder="Search any column...">
+  </mat-form-field>
+
+  <table mat-table class="full-table" [dataSource]="installedTableData">
+
+    <!-- Building Column -->
+    <ng-container matColumnDef="building">
+      <th mat-header-cell *matHeaderCellDef> Building </th>
+      <td mat-cell *matCellDef="let entry"> {{entry.building}} </td>
+    </ng-container>
+
+    <!-- Room Column -->
+    <ng-container matColumnDef="room">
+      <th mat-header-cell *matHeaderCellDef> Room </th>
+      <td mat-cell *matCellDef="let entry"> {{entry.room}} </td>
+    </ng-container>
+
+    <!-- Brand Column -->
+    <ng-container matColumnDef="brand">
+      <th mat-header-cell *matHeaderCellDef> Brand </th>
+      <td mat-cell *matCellDef="let entry"> {{entry.brand}} </td>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let entry"> {{entry.type}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="installedTableDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: installedTableDisplay;"></tr>
+  </table>
+  </mat-tab>
+
+  <mat-tab label="Storage">
+
+  <mat-form-field>
+    <input matInput (keyup)="applyStorageFilter($event.target.value)" placeholder="Search any column...">
+  </mat-form-field>
+
+  <table mat-table class="full-table" [dataSource]="storageTableData" class="mat-elevation-z8">
+
+    <!-- Brand Column -->
+    <ng-container matColumnDef="brand">
+      <th mat-header-cell *matHeaderCellDef> Brand </th>
+      <td mat-cell *matCellDef="let entry"> {{entry.brand}} </td>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let entry"> {{entry.type}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="storageTableDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: storageTableDisplay;"></tr>
+  </table>
+  </mat-tab>
+</mat-tab-group>

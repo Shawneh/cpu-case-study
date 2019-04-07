@@ -8,8 +8,8 @@
   <!--Roles Main Menu-->
   <mat-menu #rolesMenu="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="facultyStaffMenu" routerLink="faculty-staff" disabled>Faculty & Staff (Coming Soon)</button>
-    <button mat-menu-item routerLink="maintenance">Maintenance</button>
-    <button mat-menu-item routerLink="management">Management</button>
+    <button mat-menu-item [matMenuTriggerFor]="maintenanceMenu" routerLink="maintenance">Maintenance</button>
+    <button mat-menu-item [matMenuTriggerFor]="managementMenu" routerLink="management">Management</button>
     <button mat-menu-item [matMenuTriggerFor]="shippingReceivingMenu" routerLink="shipping-receiving">Shipping & Receiving</button>
     <button mat-menu-item routerLink="software-user" disabled>Software User (Coming Soon)</button>
   </mat-menu>
@@ -20,6 +20,17 @@
     <button mat-menu-item routerLink="faculty-staff/inquiry" disabled>Resource Inquiry</button>
   </mat-menu>
 
+  <!--Maintenance Submenu-->
+  <mat-menu #maintenanceMenu="matMenu">
+    <button mat-menu-item routerLink="maintenance/installed-computers">Installed Computers Report</button>
+  </mat-menu>
+
+  <!--Management Submenu-->
+  <mat-menu #managementMenu="matMenu">
+    <button mat-menu-item routerLink="management/installed-software">Installed Software Report</button>
+  </mat-menu>
+
+  <!--Shipping & Receiving Submenu-->
   <mat-menu #shippingReceivingMenu="matMenu">
     <button mat-menu-item routerLink="shipping-receiving/add-computer">Add New Computer</button>
   </mat-menu>
@@ -27,7 +38,7 @@
   <span class="fill-remaining-space"></span>
 
   <!--Github Link-->
-  <a href="https://github.com/Shawneh">
+  <a href="https://github.com/Shawneh/cpu-case-study">
     <img src="../../../../assets/images/github.png" id="github-logo" href>
   </a>
 

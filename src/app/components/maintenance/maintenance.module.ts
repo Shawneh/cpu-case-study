@@ -4,6 +4,7 @@ import { MaintenanceRoutingModule } from './maintenance-routing.module';
 import { AppMaterialModule } from '../../app-material.module';
 
 import { MaintenanceComponent } from './maintenance.component';
+import { InstalledComputersComponent } from './installed-computers/installed-computers.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { MaintenanceComponent } from './maintenance.component';
     AppMaterialModule
   ],
   declarations: [
-      MaintenanceComponent
+      MaintenanceComponent,
+      InstalledComputersComponent
     ]
 })
 

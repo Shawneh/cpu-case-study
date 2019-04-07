@@ -1,15 +1,30 @@
+import { Moment } from 'moment';
+
 export interface IComputerMaster {
-    id: number;
+    computer_id: number;
     type: string;
     serialNo: string;
     model: string;
     brand: string;
     operatingSystem: string;
-    chipArchitecture: number;
+    chipArchitecture: string;
     processorSpeed: number;
     ram: number;
     storage: number;
-    price: string;
-    purchaseDate: Date;
-    warrantyExpiration: number;
+    price: number;
+    purchaseDate: Moment;
+    warrantyExpiration: Moment;
+    installed: boolean;
+    building: string;
+    room: string;
+}
+
+export interface ISoftwareMaster {
+    software_id: number;
+    name: string;
+    category: string;
+    publisher: string;
+    copiesUsed: string;
+    copiesMax: number;
+    licenseExpiration: Moment;
 }

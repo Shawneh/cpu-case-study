@@ -85,13 +85,13 @@ export class AddComputerComponent implements OnInit {
     this.specificationForm = this.formBuilder.group({
       operatingSystem: ['', [Validators.required]],
       chipArchitecture: ['', [Validators.required]],
-      processorSpeed: ['', Validators.required],
-      ramAmount: ['', Validators.required],
-      storageAmount: ['', Validators.required],
+      processorSpeed: ['', [Validators.required, Validators.min(0)]],
+      ramAmount: ['', [Validators.required, Validators.min(0)]],
+      storageAmount: ['', [Validators.required, Validators.min(0)]],
     });
 
     this.purchaseForm = this.formBuilder.group({
-      price: ['', Validators.required],
+      price: ['', [Validators.required, Validators.min(0)]],
       purchaseDate: ['', Validators.required],
       warrantyExpiration: ['']
     });
@@ -109,7 +109,7 @@ export class AddComputerComponent implements OnInit {
     }
 
     const newEntry: IComputerMaster = {
-      id: this.compService.computerMaster.length,
+      computer_id: this.compService.computerMaster.length,
       type: this.preliminaryForm.get('computerType').value,
       serialNo: this.preliminaryForm.get('serialNo').value,
       model: this.preliminaryForm.get('model').value,
@@ -121,7 +121,10 @@ export class AddComputerComponent implements OnInit {
       storage: this.specificationForm.get('storageAmount').value,
       price: this.purchaseForm.get('price').value,
       purchaseDate: this.purchaseForm.get('purchaseDate').value,
-      warrantyExpiration: this.purchaseForm.get('warrantyExpiration').value
+      warrantyExpiration: this.purchaseForm.get('warrantyExpiration').value,
+      installed: false,
+      building: '',
+      room: ''
     };
 
     this.compService.computerMaster.push(newEntry);
@@ -136,7 +139,7 @@ export class AddComputerComponent implements OnInit {
 
   showSubmittedSnackBar() {
     this.submittedSnackBar.open('Computer Added!', 'Okay!', {
-      duration: 2000
+      duration: 5000
     });
   }
 

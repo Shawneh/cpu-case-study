@@ -4,6 +4,7 @@ import { ManagementRoutingModule } from './management-routing.module';
 import { AppMaterialModule } from '../../app-material.module';
 
 import { ManagementComponent } from './management.component';
+import { InstalledSoftwareComponent } from './installed-software/installed-software.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { ManagementComponent } from './management.component';
     AppMaterialModule
   ],
   declarations: [
-      ManagementComponent
+      ManagementComponent,
+      InstalledSoftwareComponent
     ]
 })
 

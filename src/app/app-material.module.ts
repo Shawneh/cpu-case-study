@@ -18,6 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FormsModule } from '@angular/forms';
@@ -43,6 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatSidenavModule,
         MatSnackBarModule,
         MatStepperModule,
+        MatTableModule,
+        MatTabsModule,
         MatToolbarModule,
         FormsModule,
         ReactiveFormsModule
@@ -65,6 +69,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatSidenavModule,
         MatSnackBarModule,
         MatStepperModule,
+        MatTableModule,
+        MatTabsModule,
         MatToolbarModule,
         FormsModule,
         ReactiveFormsModule
