@@ -4,33 +4,36 @@
 <mat-tab-group>
   <mat-tab label="Installed">
 
-  <mat-form-field>
-    <input matInput (keyup)="applyInstalledFilter($event.target.value)" placeholder="Search any column...">
+  <mat-form-field class="form-top-margin float-left">
+    <input matInput (keyup)="applyInstalledFilter($event.target.value)" [(ngModel)]="installedSearchInput" placeholder="Search in any column...">
+    <button mat-button *ngIf="installedSearchInput" matSuffix mat-icon-button aria-label="Clear" (click)="clearInstalledSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
 
-  <table mat-table class="full-table" [dataSource]="installedTableData">
+  <table mat-table class="full-table" #installedSort="matSort" matSort [dataSource]="installedTableData">
 
     <!-- Building Column -->
     <ng-container matColumnDef="building">
-      <th mat-header-cell *matHeaderCellDef> Building </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Building </th>
       <td mat-cell *matCellDef="let entry"> {{entry.building}} </td>
     </ng-container>
 
     <!-- Room Column -->
     <ng-container matColumnDef="room">
-      <th mat-header-cell *matHeaderCellDef> Room </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Room </th>
       <td mat-cell *matCellDef="let entry"> {{entry.room}} </td>
     </ng-container>
 
     <!-- Brand Column -->
     <ng-container matColumnDef="brand">
-      <th mat-header-cell *matHeaderCellDef> Brand </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand </th>
       <td mat-cell *matCellDef="let entry"> {{entry.brand}} </td>
     </ng-container>
 
     <!-- Type Column -->
     <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
       <td mat-cell *matCellDef="let entry"> {{entry.type}} </td>
     </ng-container>
 
@@ -41,11 +44,14 @@
 
   <mat-tab label="Storage">
 
-  <mat-form-field>
-    <input matInput (keyup)="applyStorageFilter($event.target.value)" placeholder="Search any column...">
+  <mat-form-field class="form-top-margin float-left">
+    <input matInput (keyup)="applyStorageFilter($event.target.value)" [(ngModel)]="storageSearchInput" placeholder="Search in any column...">
+    <button mat-button *ngIf="storageSearchInput" matSuffix mat-icon-button aria-label="Clear2" (click)="clearStorageSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
 
-  <table mat-table class="full-table" [dataSource]="storageTableData" class="mat-elevation-z8">
+  <table mat-table class="full-table" #storageSort="matSort" matSort [dataSource]="storageTableData">
 
     <!-- Brand Column -->
     <ng-container matColumnDef="brand">

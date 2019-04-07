@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource } from '@angular/material';
 
 import { ComputerService } from '../../../services/tables/computer.service';
 
@@ -11,14 +11,18 @@ import { IComputerMaster } from '../../../interfaces/master.type';
   styleUrls: ['./installed-computers.component.scss']
 })
 export class InstalledComputersComponent implements OnInit {
+  @ViewChild('installedSort') installedSort: MatSort;
+  @ViewChild('storageSort') storageSort: MatSort;
 
   computerList: IComputerMaster[] = [];
 
   installedTableDisplay = ['building', 'room', 'brand', 'type'];
   installedTableData = new MatTableDataSource();
+  installedSearchInput = '';
 
   storageTableDisplay = ['brand', 'type'];
   storageTableData = new MatTableDataSource();
+  storageSearchInput = '';
 
   constructor(private compService: ComputerService) { }
 
@@ -27,12 +31,14 @@ export class InstalledComputersComponent implements OnInit {
 
     // Append the records to their appropriate tables
     for (const record of this.computerList) {
-      if (record.installed === true) {
+      if (record.installed) {
         this.installedTableData.data.push(record);
       } else {
         this.storageTableData.data.push(record);
       }
     }
+
+    this.installedTableData.sort = this.installedSort;
 
   }
 
@@ -43,4 +49,13 @@ export class InstalledComputersComponent implements OnInit {
     this.storageTableData.filter = filterValue.trim().toLowerCase();
   }
 
+  clearInstalledSearch() {
+    this.installedSearchInput = '';
+    this.applyInstalledFilter('');
+  }
+
+  clearStorageSearch() {
+    this.storageSearchInput = '';
+    this.applyStorageFilter('');
+  }
 }

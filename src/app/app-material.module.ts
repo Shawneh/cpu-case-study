@@ -17,6 +17,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -44,6 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatSelectModule,
         MatSidenavModule,
         MatSnackBarModule,
+        MatSortModule,
         MatStepperModule,
         MatTableModule,
         MatTabsModule,
@@ -68,6 +70,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatSelectModule,
         MatSidenavModule,
         MatSnackBarModule,
+        MatSortModule,
         MatStepperModule,
         MatTableModule,
         MatTabsModule,
