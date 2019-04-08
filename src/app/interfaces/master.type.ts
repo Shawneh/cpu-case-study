@@ -25,7 +25,19 @@ export interface ISoftwareMaster {
     name: string;
     category: string;
     publisher: string;
-    copiesUsed: string;
+    releaseYear: number;
+    minProcessorSpeed: number;
+    minRam: number;
+    storageSize: number;
+    copiesUsed: number;
     copiesMax: number;
+    purchaseDate: Moment;
     licenseExpiration: Moment;
+    available: boolean;
+    unavailableReason: string;
+}
+
+export interface IComputerSoftware {
+    software_id: number;
+    computer_id: number[];
 }

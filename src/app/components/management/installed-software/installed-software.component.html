@@ -1,2 +1,39 @@
 <p class='mat-headline center form-top-margin'>Installed Software Report</p>
 <mat-divider [inset]="true" class='mat-divider-right-margin'></mat-divider>
+
+<mat-tab-group>
+    <mat-tab label="Available">
+        <table mat-table #availableSort="matSort" matSort [dataSource]="availableTableData">
+            <ng-container [matColumnDef]="column" *ngFor="let column of availableTableDisplay">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{column}}
+                </th>
+                <td mat-row class="mat-cell" *matCellDef="let entry">{{entry[column]}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="availableTableDisplay"></tr>
+            <tr mat-row *matRowDef="let row; let i = index; columns: availableTableDisplay" (click)="viewAssociatedComputers(i)"></tr>
+        </table>
+
+    </mat-tab>
+    <mat-tab label="Unavailable">
+        
+        <table mat-table #unavailableSort="matSort" matSort [dataSource]="unavailableTableData">
+            <ng-container [matColumnDef]="column" *ngFor="let column of unavailableTableDisplay">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{column}}
+                </th>
+                <td mat-row class="mat-cell" *matCellDef="let entry">{{entry[column]}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="unavailableTableDisplay"></tr>
+            <tr mat-row *matRowDef="let row; let i = index; columns: unavailableTableDisplay"></tr>
+        </table>
+    
+    </mat-tab>
+    <mat-tab label="Actions">
+        <p class="form-top-margin float-left mat-subheader">
+            Coming Soon!
+        </p>
+    </mat-tab>
+</mat-tab-group>

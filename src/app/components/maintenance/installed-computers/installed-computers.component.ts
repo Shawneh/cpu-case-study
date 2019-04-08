@@ -14,6 +14,7 @@ export class InstalledComputersComponent implements OnInit {
   @ViewChild('storageSort') storageSort: MatSort;
 
   computerList: IComputerMaster[] = [];
+  serviceRequests: string[];
 
   allInstalledColumns = [
     'serialNo', 'model', 'operatingSystem',
@@ -41,6 +42,7 @@ export class InstalledComputersComponent implements OnInit {
 
   ngOnInit() {
     this.computerList = this.compService.computerMaster;
+    this.serviceRequests = this.compService.serviceRequests;
 
     // Append the records to their appropriate tables
     for (const record of this.computerList) {
@@ -111,4 +113,5 @@ export class InstalledComputersComponent implements OnInit {
     this.allStorageColumns.sort();
     this.storageTableDisplay.sort();
   }
+
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IComputerMaster } from '../../interfaces/master.type';
+import { IComputerMaster, ISoftwareMaster } from '../../interfaces/master.type';
 import * as moment from 'moment';
 
 @Injectable({
@@ -27,9 +27,11 @@ export class ComputerService {
     'Windows 10 S', 'Windows 10', 'Windows 8/8.1', 'Windows 7'
   ];
 
+  serviceRequests: string[] = [];
+
   computerMaster: IComputerMaster[] = [
     {
-      computer_id: 0,
+      computer_id: 10000,
       type: 'Desktop',
       serialNo: 'MB700367',
       model: 'R751D',
@@ -48,7 +50,7 @@ export class ComputerService {
       room: '213'
     },
     {
-      computer_id: 1,
+      computer_id: 10001,
       type: 'Laptop',
       serialNo: 'MB701367',
       model: 'R751L',
@@ -67,7 +69,7 @@ export class ComputerService {
       room: '425'
     },
     {
-      computer_id: 2,
+      computer_id: 10002,
       type: 'Desktop',
       serialNo: 'MB700492',
       model: 'R751D',
@@ -86,7 +88,7 @@ export class ComputerService {
       room: '234'
     },
     {
-      computer_id: 1,
+      computer_id: 10003,
       type: 'Laptop',
       serialNo: 'MB701831',
       model: 'R751L',
@@ -105,6 +107,25 @@ export class ComputerService {
       room: '234'
     }
 
+  ];
+
+  softwareMaster: ISoftwareMaster[] = [
+    {
+      software_id: 10000,
+      name: 'Word',
+      category: 'Application',
+      publisher: 'Microsoft',
+      releaseYear: 2019,
+      minProcessorSpeed: 1.6,
+      minRam: 2,
+      storageSize: 4.0,
+      copiesUsed: 0,
+      copiesMax: 5000,
+      purchaseDate: moment('01-1-2019', 'MM-DD-YYYY'),
+      licenseExpiration: moment('01-1-2020', 'MM-DD-YYYY'),
+      available: true,
+      unavailableReason: null
+    }
   ];
 
   constructor() { }

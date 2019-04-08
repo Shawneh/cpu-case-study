@@ -27,7 +27,7 @@
       </mat-select> 
   </mat-form-field>
   
-  <table mat-table class="full-table" #installedSort="matSort" matSort [dataSource]="installedTableData">
+  <table mat-table #installedSort="matSort" matSort [dataSource]="installedTableData">
 
     <ng-container [matColumnDef]="column" *ngFor="let column of installedTableDisplay">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -37,12 +37,12 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="installedTableDisplay"></tr>
-    <tr mat-row *matRowDef="let row; columns: installedTableDisplay;"></tr>
+    <tr mat-row *matRowDef="let row; let i = index; columns: installedTableDisplay;"></tr>
   </table>
   </mat-tab>
 
   <mat-tab label="Storage">
-
+  
   <mat-form-field class="form-top-margin float-left">
     <input matInput (keyup)="applyStorageFilter($event.target.value)" [(ngModel)]="storageSearchInput" placeholder="Search in any column...">
     <button mat-button *ngIf="storageSearchInput" matSuffix mat-icon-button aria-label="Clear2" (click)="clearStorageSearch()">
@@ -66,7 +66,7 @@
     </mat-select> 
   </mat-form-field>
 
-  <table mat-table class="full-table" #storageSort="matSort" matSort [dataSource]="storageTableData">
+  <table mat-table #storageSort="matSort" matSort [dataSource]="storageTableData">
 
     <ng-container [matColumnDef]="column" *ngFor="let column of storageTableDisplay">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -78,5 +78,9 @@
     <tr mat-header-row *matHeaderRowDef="storageTableDisplay"></tr>
     <tr mat-row *matRowDef="let row; columns: storageTableDisplay;"></tr>
   </table>
+  </mat-tab>
+
+  <mat-tab label="Requests ({{serviceRequests.length}})">
+    <p class="form-top-margin float-left mat-subheader">Coming Soon!</p>
   </mat-tab>
 </mat-tab-group>
