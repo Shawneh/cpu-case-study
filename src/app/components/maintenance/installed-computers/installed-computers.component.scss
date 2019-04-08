@@ -1,7 +1,20 @@
+mat-form-field {
+    width: 320px;
+}
+
 mat-tab-group {
     margin-left: 80px;
     margin-right: 80px;
     height: 100%;
+}
+
+.delete-column-button {
+    height: 8px;
+    display: hidden;
+}
+
+.delete-column-button:hover {
+    display: flex;
 }
 
 .mat-cell {

@@ -15,6 +15,7 @@ export interface IComputerMaster {
     purchaseDate: Moment;
     warrantyExpiration: Moment;
     installed: boolean;
+    installedBy: string;
     building: string;
     room: string;
 }

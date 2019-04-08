@@ -41,8 +41,9 @@ export class ComputerService {
       storage: 2000,
       price: 999.99,
       purchaseDate: moment('04-07-2019', 'MM-DD-YYYY'),
-      warrantyExpiration: moment(),
+      warrantyExpiration: null,
       installed: true,
+      installedBy: 'Mike',
       building: 'Cook Hall',
       room: '213'
     },
@@ -59,8 +60,9 @@ export class ComputerService {
       storage: 512,
       price: 799.99,
       purchaseDate: moment('02-21-2019', 'MM-DD-YYYY'),
-      warrantyExpiration: moment(),
+      warrantyExpiration: null,
       installed: true,
+      installedBy: 'Gary',
       building: 'Davis-Shaugnessy',
       room: '425'
     },
@@ -77,8 +79,9 @@ export class ComputerService {
       storage: 2000,
       price: 999.99,
       purchaseDate: moment('04-07-2019', 'MM-DD-YYYY'),
-      warrantyExpiration: moment(),
+      warrantyExpiration: null,
       installed: true,
+      installedBy: 'Mike',
       building: 'Cook Hall',
       room: '234'
     },
@@ -95,8 +98,9 @@ export class ComputerService {
       storage: 512,
       price: 799.99,
       purchaseDate: moment('02-21-2019', 'MM-DD-YYYY'),
-      warrantyExpiration: moment(),
+      warrantyExpiration: null,
       installed: true,
+      installedBy: 'Mike',
       building: 'Cook Hall',
       room: '234'
     }

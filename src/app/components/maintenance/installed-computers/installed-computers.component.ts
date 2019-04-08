@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
-
 import { ComputerService } from '../../../services/tables/computer.service';
 
 import { IComputerMaster } from '../../../interfaces/master.type';
@@ -8,7 +7,7 @@ import { IComputerMaster } from '../../../interfaces/master.type';
 @Component({
   selector: 'app-installed-computers',
   templateUrl: './installed-computers.component.html',
-  styleUrls: ['./installed-computers.component.scss']
+  styleUrls: ['./installed-computers.component.scss'],
 })
 export class InstalledComputersComponent implements OnInit {
   @ViewChild('installedSort') installedSort: MatSort;
@@ -16,9 +15,23 @@ export class InstalledComputersComponent implements OnInit {
 
   computerList: IComputerMaster[] = [];
 
-  installedTableDisplay = ['building', 'room', 'brand', 'type'];
+  allInstalledColumns = [
+    'serialNo', 'model', 'operatingSystem',
+    'chipArchitecture', 'processorSpeed', 'ram',
+    'storage', 'price', 'purchaseDate',
+    'warrantyExpiration'
+  ];
+
+  installedTableDisplay = ['building', 'room', 'brand', 'type', 'installedBy'];
   installedTableData = new MatTableDataSource();
   installedSearchInput = '';
+
+  allStorageColumns = [
+    'serialNo', 'model', 'operatingSystem',
+    'chipArchitecture', 'processorSpeed', 'ram',
+    'storage', 'price', 'purchaseDate',
+    'warrantyExpiration'
+  ];
 
   storageTableDisplay = ['brand', 'type'];
   storageTableData = new MatTableDataSource();
@@ -37,6 +50,10 @@ export class InstalledComputersComponent implements OnInit {
         this.storageTableData.data.push(record);
       }
     }
+    this.allInstalledColumns.sort();
+    this.installedTableDisplay.sort();
+    this.allStorageColumns.sort();
+    this.storageTableDisplay.sort();
 
     this.installedTableData.sort = this.installedSort;
 
@@ -57,5 +74,41 @@ export class InstalledComputersComponent implements OnInit {
   clearStorageSearch() {
     this.storageSearchInput = '';
     this.applyStorageFilter('');
+  }
+
+  addInstalledTableColumn(value: string) {
+    this.installedTableDisplay.push(value);
+    if (this.allInstalledColumns.indexOf(value) !== -1) {
+      this.allInstalledColumns.splice(this.allInstalledColumns.indexOf(value), 1);
+    }
+    this.allInstalledColumns.sort();
+    this.installedTableDisplay.sort();
+  }
+
+  removeInstalledTableColumn(value: string) {
+    this.allInstalledColumns.push(value);
+    if (this.installedTableDisplay.indexOf(value) !== -1) {
+      this.installedTableDisplay.splice(this.installedTableDisplay.indexOf(value), 1);
+    }
+    this.allInstalledColumns.sort();
+    this.installedTableDisplay.sort();
+  }
+
+  addStorageTableColumn(value: string) {
+    this.storageTableDisplay.push(value);
+    if (this.allStorageColumns.indexOf(value) !== -1) {
+      this.allStorageColumns.splice(this.allStorageColumns.indexOf(value), 1);
+    }
+    this.allStorageColumns.sort();
+    this.storageTableDisplay.sort();
+  }
+
+  removeStorageTableColumn(value: string) {
+    this.allStorageColumns.push(value);
+    if (this.storageTableDisplay.indexOf(value) !== -1) {
+      this.storageTableDisplay.splice(this.storageTableDisplay.indexOf(value), 1);
+    }
+    this.allStorageColumns.sort();
+    this.storageTableDisplay.sort();
   }
 }

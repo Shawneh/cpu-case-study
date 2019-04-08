@@ -123,6 +123,7 @@ export class AddComputerComponent implements OnInit {
       purchaseDate: this.purchaseForm.get('purchaseDate').value,
       warrantyExpiration: this.purchaseForm.get('warrantyExpiration').value,
       installed: false,
+      installedBy: null,
       building: '',
       room: ''
     };
