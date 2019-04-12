@@ -1,7 +1,7 @@
 <h1 class="mat-display-2" id="dashboard-header">CPU Case Study</h1>
 <h1 class='mat-headline' id="dashboard-subheader">Choose a Role</h1>
 
-<mat-grid-list cols="5">
+<mat-grid-list [cols]="gridColumns" (window:resize)="onResize($event)">
 
   <mat-grid-tile>
     <mat-card>

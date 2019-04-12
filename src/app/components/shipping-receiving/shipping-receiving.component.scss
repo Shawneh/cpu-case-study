@@ -18,11 +18,17 @@ mat-sidenav {
     background-color: $primary-default;
     color: $light-shade;
     position: absolute;
-    float: left;
 }
 
 #sidenav-container {
     padding: 0;
     top: 112px !important;
     text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+
+    #open-side-nav-btn {
+        left: 8px;
+    }
 }

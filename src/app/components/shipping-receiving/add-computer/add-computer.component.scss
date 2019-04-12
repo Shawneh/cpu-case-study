@@ -21,3 +21,29 @@ mat-vertical-stepper {
     margin-top: 16px;
     display: inline-block;
 }
+
+@media screen and (max-width: 480px) {
+
+
+    mat-form-field {
+        width: 256px;
+    }
+
+    mat-vertical-stepper {
+        width: 100%;
+    }
+    
+    .left-margin {
+        margin-left: 8px !important;
+    }
+
+    .mat-headline {
+        margin-left: 32px;
+        font-size: 16px;
+    }
+
+    .form-float-left {
+        margin-left: 0;
+    }
+
+}

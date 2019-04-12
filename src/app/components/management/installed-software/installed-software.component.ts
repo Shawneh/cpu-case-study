@@ -16,13 +16,24 @@ export class InstalledSoftwareComponent implements OnInit {
 
   softwareList: ISoftwareMaster[] = [];
 
+  allAvailableColumns = [
+    'category', 'releaseYear', 'minProcessorSpeed',
+    'minRam', 'storageSize', 'copiesUsed',
+    'copiesMax', 'purchaseDate', 'licenseExpiration'
+  ];
   availableTableDisplay = ['name', 'publisher'];
   availableTableData =  new MatTableDataSource();
-  availableTableSearchInput = '';
+  availableSearchInput = '';
 
-  unavailableTableDisplay = [];
+  allUnavailableColumns = [
+    'category', 'releaseYear', 'minProcessorSpeed',
+    'minRam', 'storageSize', 'copiesUsed',
+    'copiesMax', 'purchaseDate', 'licenseExpiration',
+    'unavailaableReason'
+  ];
+  unavailableTableDisplay = ['unavailableReason', 'name'];
   unavailableTableData = new MatTableDataSource();
-  unavailableTableSearchInput = '';
+  unavailableSearchInput = '';
 
   constructor(private compService: ComputerService) { }
 
@@ -39,7 +50,63 @@ export class InstalledSoftwareComponent implements OnInit {
   }
 
   viewAssociatedComputers(index: number) {
+    // Show computers associated with a certain software
+    // Would use the IComputerSoftware Interface
     console.log(index);
+  }
+
+  applyAvailableFilter(filterValue: string) {
+    this.availableTableData.filter = filterValue.trim().toLowerCase();
+  }
+
+  applyUnavailableFilter(filterValue: string) {
+    this.availableTableData.filter = filterValue.trim().toLowerCase();
+  }
+
+  clearInputFilter(filterName: string) {
+    if (filterName === 'available') {
+      this.availableSearchInput = '';
+      this.applyAvailableFilter('');
+    } else if (filterName === 'unavailable') {
+      this.unavailableSearchInput = '';
+      this.applyUnavailableFilter('');
+    } else {
+      console.log('Unknown Search');
+    }
+  }
+
+  addAvailableTableColumn(value: string) {
+    this.availableTableDisplay.push(value);
+    if (this.allAvailableColumns.indexOf(value) !== -1) {
+      this.allAvailableColumns.splice(this.allAvailableColumns.indexOf(value), 1);
+    }
+    this.allAvailableColumns.sort();
+    this.availableTableDisplay.sort();
+  }
+
+  removeAvailableTableColumn(value: string) {
+    this.allAvailableColumns.push(value);
+    if (this.availableTableDisplay.indexOf(value) !== -1) {
+      this.availableTableDisplay.splice(this.availableTableDisplay.indexOf(value), 1);
+    }
+  }
+
+  addUnavailableColumn(value: string) {
+    this.unavailableTableDisplay.push(value);
+    if (this.allUnavailableColumns.indexOf(value) !== -1) {
+      this.allUnavailableColumns.splice(this.allUnavailableColumns.indexOf(value), 1);
+    }
+    this.allUnavailableColumns.sort();
+    this.unavailableTableDisplay.sort();
+  }
+
+  removeUnavailableColumn(value: string) {
+    this.allUnavailableColumns.push(value);
+    if (this.unavailableTableDisplay.indexOf(value) !== -1) {
+      this.unavailableTableDisplay.splice(this.unavailableTableDisplay.indexOf(value), 1);
+    }
+    this.allUnavailableColumns.sort();
+    this.unavailableTableDisplay.sort();
   }
 
 }

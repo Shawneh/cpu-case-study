@@ -3,6 +3,29 @@
 
 <mat-tab-group>
     <mat-tab label="Available">
+        <mat-form-field class="form-top-margin float-left">
+            <input matInput (keyup)="applyAvailableFilter($event.target.value)" [(ngModel)]="availableSearchInput" placeholder="Search in any column...">
+            <button mat-button *ngIf="availableSearchInput" matSuffix mat-icon-button aria-label="Clear" (click)="clearInputFiler('available')">
+            <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="form-float-left form-top-margin" required>
+            <mat-label>Add Column</mat-label>
+            <mat-select (selectionChange)="addAvailableTableColumn($event.value)">
+                <mat-option *ngFor="let column of allAvailableColumns" [value]="column">
+                    {{column}}
+                </mat-option>
+            </mat-select> 
+        </mat-form-field>
+        <mat-form-field class="form-float-left form-top-margin" required>
+            <mat-label>Remove Column</mat-label>
+            <mat-select (selectionChange)="removeAvailableTableColumn($event.value)">
+                <mat-option *ngFor="let column of availableTableDisplay" [value]="column">
+                    {{column}}
+                </mat-option>
+            </mat-select> 
+        </mat-form-field>
+
         <table mat-table #availableSort="matSort" matSort [dataSource]="availableTableData">
             <ng-container [matColumnDef]="column" *ngFor="let column of availableTableDisplay">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -17,6 +40,29 @@
 
     </mat-tab>
     <mat-tab label="Unavailable">
+
+        <mat-form-field class="form-top-margin float-left">
+            <input matInput (keyup)="applyUnavailableFilter($event.target.value)" [(ngModel)]="unavailableSearchInput" placeholder="Search in any column...">
+            <button mat-button *ngIf="unavailableSearchInput" matSuffix mat-icon-button aria-label="Clear" (click)="clearInputFiler('unavailable')">
+            <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field class="form-float-left form-top-margin" required>
+            <mat-label>Add Column</mat-label>
+            <mat-select (selectionChange)="addAvailableTableColumn($event.value)">
+                <mat-option *ngFor="let column of allUnavailableColumns" [value]="column">
+                    {{column}}
+                </mat-option>
+            </mat-select> 
+        </mat-form-field>
+        <mat-form-field class="form-float-left form-top-margin" required>
+            <mat-label>Remove Column</mat-label>
+            <mat-select (selectionChange)="removeUnavailableTableColumn($event.value)">
+                <mat-option *ngFor="let column of unavailableTableDisplay" [value]="column">
+                    {{column}}
+                </mat-option>
+            </mat-select> 
+        </mat-form-field>
         
         <table mat-table #unavailableSort="matSort" matSort [dataSource]="unavailableTableData">
             <ng-container [matColumnDef]="column" *ngFor="let column of unavailableTableDisplay">
