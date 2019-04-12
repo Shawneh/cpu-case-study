@@ -91,7 +91,7 @@ export class InstalledSoftwareComponent implements OnInit {
     }
   }
 
-  addUnavailableColumn(value: string) {
+  addUnavailableTableColumn(value: string) {
     this.unavailableTableDisplay.push(value);
     if (this.allUnavailableColumns.indexOf(value) !== -1) {
       this.allUnavailableColumns.splice(this.allUnavailableColumns.indexOf(value), 1);
@@ -100,7 +100,7 @@ export class InstalledSoftwareComponent implements OnInit {
     this.unavailableTableDisplay.sort();
   }
 
-  removeUnavailableColumn(value: string) {
+  removeUnavailableTableColumn(value: string) {
     this.allUnavailableColumns.push(value);
     if (this.unavailableTableDisplay.indexOf(value) !== -1) {
       this.unavailableTableDisplay.splice(this.unavailableTableDisplay.indexOf(value), 1);

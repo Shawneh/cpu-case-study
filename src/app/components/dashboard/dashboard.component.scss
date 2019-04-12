@@ -70,14 +70,7 @@ mat-grid-tile {
     }
 
     .dashboard-card-img {
-        width: 96px;
-        margin: 0 auto;
-        position: relative;
         top: -24px;
-        
-        left: -webkit-calc(50% - 48px); //Chrome
-        left: -moz-calc(50% - 48px); //firefox
-        left: calc(50% - 48px); //IE
     }
 
     .mat-grid-tile .mat-figure {
