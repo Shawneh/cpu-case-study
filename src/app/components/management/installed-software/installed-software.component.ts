@@ -21,17 +21,17 @@ export class InstalledSoftwareComponent implements OnInit {
     'minRam', 'storageSize', 'copiesUsed',
     'copiesMax', 'purchaseDate', 'licenseExpiration'
   ];
-  availableTableDisplay = ['name', 'publisher'];
+  availableTableDisplay = ['name', 'publisher', 'copiesUsed',
+  'copiesMax' ];
   availableTableData =  new MatTableDataSource();
   availableSearchInput = '';
 
   allUnavailableColumns = [
     'category', 'releaseYear', 'minProcessorSpeed',
-    'minRam', 'storageSize', 'copiesUsed',
-    'copiesMax', 'purchaseDate', 'licenseExpiration',
-    'unavailaableReason'
+    'minRam', 'storageSize', 'purchaseDate', 'licenseExpiration'
   ];
-  unavailableTableDisplay = ['unavailableReason', 'name'];
+  unavailableTableDisplay = ['unavailableReason', 'name', 'copiesUsed',
+  'copiesMax' ];
   unavailableTableData = new MatTableDataSource();
   unavailableSearchInput = '';
 
