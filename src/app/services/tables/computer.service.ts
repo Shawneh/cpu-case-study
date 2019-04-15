@@ -121,10 +121,26 @@ export class ComputerService {
       storageSize: 4.0,
       copiesUsed: 0,
       copiesMax: 5000,
-      purchaseDate: moment('01-1-2019', 'MM-DD-YYYY'),
-      licenseExpiration: moment('01-1-2020', 'MM-DD-YYYY'),
+      purchaseDate: moment('01-01-2019', 'MM-DD-YYYY'),
+      licenseExpiration: moment('01-01-2020', 'MM-DD-YYYY'),
       available: true,
       unavailableReason: null
+    },
+    {
+      software_id: 10001,
+      name: 'Excel',
+      category: 'Application',
+      publisher: 'Microsoft',
+      releaseYear: 2019,
+      minProcessorSpeed: 1.8,
+      minRam: 4,
+      storageSize: 4.0,
+      copiesUsed: 5000,
+      copiesMax: 5000,
+      purchaseDate: moment('08-27-2018', 'MM-DD-YYYY'),
+      licenseExpiration: moment('08-27-2019', 'MM-DD-YYYY'),
+      available: false,
+      unavailableReason: 'Max Used'
     }
   ];
 
