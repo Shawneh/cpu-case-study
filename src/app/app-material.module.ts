@@ -7,12 +7,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -25,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressBar } from '@angular/material';
 
 @NgModule({
     imports: [
@@ -35,12 +38,14 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatCheckboxModule,
         MatDatepickerModule,
         MatDividerModule,
+        MatExpansionModule,
         MatGridListModule,
         MatIconModule,
         MatInputModule,
         MatListModule,
         MatMenuModule,
         MatMomentDateModule,
+        MatProgressBarModule,
         MatRadioModule,
         MatSelectModule,
         MatSidenavModule,
@@ -60,12 +65,14 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatCheckboxModule,
         MatDatepickerModule,
         MatDividerModule,
+        MatExpansionModule,
         MatGridListModule,
         MatIconModule,
         MatInputModule,
         MatListModule,
         MatMenuModule,
         MatMomentDateModule,
+        MatProgressBarModule,
         MatRadioModule,
         MatSelectModule,
         MatSidenavModule,

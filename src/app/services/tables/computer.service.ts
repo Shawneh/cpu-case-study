@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IComputerMaster, ISoftwareMaster } from '../../interfaces/master.type';
+import { IComputerMaster, ISoftwareMaster, ITrainingSoftware } from '../../interfaces/master.type';
 import * as moment from 'moment';
 
 @Injectable({
@@ -141,6 +141,49 @@ export class ComputerService {
       licenseExpiration: moment('08-27-2019', 'MM-DD-YYYY'),
       available: false,
       unavailableReason: 'Max Used'
+    },
+    {
+      software_id: 10002,
+      name: 'Powerpoint',
+      category: 'Application',
+      publisher: 'Microsoft',
+      releaseYear: 2019,
+      minProcessorSpeed: 1.8,
+      minRam: 4,
+      storageSize: 4.0,
+      copiesUsed: 1000,
+      copiesMax: 5000,
+      purchaseDate: moment('08-27-2018', 'MM-DD-YYYY'),
+      licenseExpiration: moment('08-27-2019', 'MM-DD-YYYY'),
+      available: true,
+      unavailableReason: 'Null'
+    }
+  ];
+
+  trainingSoftware: ITrainingSoftware[] = [
+    {
+      software_id: 10000,
+      softwareName: 'Word',
+      softwareLogo: '../../../assets/images/software-logos/word.png',
+      link: 'https://www.udemy.com/microsoft-word-from-beginner-to-advanced/',
+      linkDescription: 'Microsoft Word from Beginner to Advanced',
+      linkSource: 'Udemy'
+    },
+    {
+      software_id: 10001,
+      softwareName: 'Excel',
+      softwareLogo: '../../../assets/images/software-logos/excel.png',
+      link: 'https://www.udemy.com/microsoft-excel-2013-from-beginner-to-advanced-and-beyond/',
+      linkDescription: 'Microsoft Excel from Beginner to Advanced',
+      linkSource: 'Udemy'
+    },
+    {
+      software_id: 10002,
+      softwareName: 'Powerpoint',
+      softwareLogo: '../../../assets/images/software-logos/powerpoint.png',
+      link: 'https://www.udemy.com/powerpoint-master-class-for-business-and-finance-graduates/',
+      linkDescription: 'Powerpoint Master Class',
+      linkSource: 'Udemy'
     }
   ];
 

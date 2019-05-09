@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'faculty-staff',
@@ -28,7 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'software-user',
-    loadChildren: './components/software-user/software-user.module#SoftwareUserModule'
+    loadChildren: './components/software-user/software-user.module#SoftwareUserModule',
+    canActivate: [AuthGuard]
   },
   {
     path: '',

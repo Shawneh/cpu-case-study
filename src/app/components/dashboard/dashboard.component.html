@@ -4,7 +4,7 @@
 <mat-grid-list [cols]="gridColumns" (window:resize)="onResize($event)">
 
   <mat-grid-tile>
-    <mat-card>
+    <mat-card routerLink="../software-user" class="selectable">
       <img src="../../../assets/images/dashboard/learning.png" class="dashboard-card-img">
       <mat-card-header>
         <mat-card-title> Software User </mat-card-title>
@@ -13,7 +13,9 @@
         <br>
         <mat-divider [inset]="true"></mat-divider>
         <br><br>
-        (Coming Soon)
+        Login Required
+        <br><br>
+        Select Training Programs
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>

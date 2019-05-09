@@ -41,3 +41,19 @@ export interface IComputerSoftware {
     software_id: number;
     computer_id: number[];
 }
+
+export interface IUser {
+    username: string;
+    password: string;
+    role: string;
+    coursesTaken: number[];
+}
+
+export interface ITrainingSoftware {
+    software_id: number;
+    softwareName: string;
+    softwareLogo: string;
+    link: string;
+    linkDescription: string;
+    linkSource: string;
+}

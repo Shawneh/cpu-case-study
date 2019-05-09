@@ -1,0 +1,27 @@
+<div class="login-form-container">
+
+<p class="mat-display-2" id="login-header">Login</p>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+
+  <mat-form-field required class="form-input">
+      <input matInput formControlName="username" placeholder="Username" required>
+  </mat-form-field>
+
+  <mat-form-field required class="form-input">
+      <input matInput type="password" formControlName="password" placeholder="Password" required>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary" class="submit-btn">Submit</button>
+
+</form>
+</div>
+
+
+<div class="demo-credentials">
+  <button mat-flat-button (click)="toggle()">Toggle Credentials</button>
+  <div [style.visibility]="isHidden ? 'hidden' : 'visible'">
+    <p class="mat-body-strong">Username: SU-Teacher</p>
+    <p class="mat-body-strong">Password: SecurePass</p>
+  </div>
+</div>

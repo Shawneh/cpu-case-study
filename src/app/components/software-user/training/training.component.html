@@ -1,0 +1,54 @@
+<div class="header-container">
+  <p class="mat-display-3" id="training-header">Software Training</p>
+  <p class="mat-body-1">{{user}}'s Courses</p>
+</div>
+
+<div class="full-page">
+  <div class="half-page">
+    <p class="mat-display-1">Completed Training</p>
+    <mat-progress-bar mode="determinate" [value]="completedPerc"></mat-progress-bar>
+    <div class="accordion-container">
+    <ng-template [ngIf]="coursesTaken">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let course of coursesTaken">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <img src="{{course.softwareLogo}}" height="40px" class="expansion-logo">
+          </mat-panel-title>
+          <mat-panel-description>
+            <p class="mat-accent">{{course.softwareName}}</p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <a href="{{course.link}}"> {{course.linkSource}} - {{course.linkDescription}} </a>
+        </mat-panel-description>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-template>
+    </div>
+  </div>
+
+  <div class="half-page">
+    <p class="mat-display-1">Available Training</p>
+    <mat-progress-bar mode="determinate" [value]="uncompletedPerc"></mat-progress-bar>
+    <div class="accordion-container">
+      <ng-template [ngIf]="coursesNotTaken">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let course of coursesNotTaken">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+            <img src="{{course.softwareLogo}}" height="40px" class="expansion-logo">
+          </mat-panel-title>
+          <mat-panel-description>
+            <p class="mat-accent">{{course.softwareName}}</p>
+          </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            <a href="{{course.link}}"> {{course.linkSource}} - {{course.linkDescription}} </a>
+          </mat-panel-description>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+      </div>
+  </div>
+</div>

@@ -11,7 +11,7 @@
     <button mat-menu-item [matMenuTriggerFor]="maintenanceMenu" routerLink="maintenance">Maintenance</button>
     <button mat-menu-item [matMenuTriggerFor]="managementMenu" routerLink="management">Management</button>
     <button mat-menu-item [matMenuTriggerFor]="shippingReceivingMenu" routerLink="shipping-receiving">Shipping & Receiving</button>
-    <button mat-menu-item routerLink="software-user" disabled>Software User (Coming Soon)</button>
+    <button mat-menu-item [matMenuTriggerFor]="softwareUserMenu" routerLink="software-user">Software User</button>
   </mat-menu>
 
   <!--Faculty & Staff Submenu-->
@@ -33,6 +33,11 @@
   <!--Shipping & Receiving Submenu-->
   <mat-menu #shippingReceivingMenu="matMenu">
     <button mat-menu-item routerLink="shipping-receiving/add-computer">Add New Computer</button>
+  </mat-menu>
+
+  <!--Shipping & Receiving Submenu-->
+  <mat-menu #softwareUserMenu="matMenu">
+    <button mat-menu-item routerLink="software-user/training">Software Training</button>
   </mat-menu>
 
   <span class="fill-remaining-space"></span>

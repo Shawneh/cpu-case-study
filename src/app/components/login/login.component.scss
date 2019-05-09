@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+
+
+.demo-credentials {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-input {
+    width: 256px; 
+    margin: 0 auto;
+}
+
+.login-form-container {
+    width: 256px;
+    margin: 0 auto;
+    margin-top: 64px;
+    padding: 32px 64px 92px 64px;
+    text-align: center;
+}
+
+.submit-btn {
+    margin-top: 16px;
+}
+
+#login-header {
+    color: $primary-default;
+}
