@@ -11,12 +11,14 @@ export class LoginComponent implements OnInit {
 
 loginForm: FormGroup;
 isHidden: boolean;
+state: string;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
   ngOnInit() {
     this.initForms();
     this.isHidden = true;
+    this.state = 'Show'
   }
 
   initForms() {
@@ -27,12 +29,12 @@ isHidden: boolean;
   }
 
   login() {
-    console.log('Reached Login');
     this.authService.login(this.loginForm.get('username').value, this.loginForm.get('password').value);
   }
 
-  toggle() {
+  toggleCredentials() {
     this.isHidden = this.isHidden ? false : true;
+    this.state = this.isHidden ? 'Show' : 'Hide';
   }
 
 }

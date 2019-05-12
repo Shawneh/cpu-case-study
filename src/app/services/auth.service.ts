@@ -45,4 +45,10 @@ export class AuthService {
     return of(false);
   }
 
+  logout() {
+    this.isLoggedIn = false;
+    this.sessionUser = null;
+    this.router.navigate(['dashboard']);
+  }
+
 }

@@ -19,7 +19,7 @@
 
 
 <div class="demo-credentials">
-  <button mat-flat-button (click)="toggle()">Toggle Credentials</button>
+  <button mat-flat-button (click)="toggleCredentials()">{{state}} Credentials</button>
   <div [style.visibility]="isHidden ? 'hidden' : 'visible'">
     <p class="mat-body-strong">Username: SU-Teacher</p>
     <p class="mat-body-strong">Password: SecurePass</p>

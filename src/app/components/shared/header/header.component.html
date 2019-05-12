@@ -42,6 +42,7 @@
 
   <span class="fill-remaining-space"></span>
 
+  <button mat-button (click)="loggedIn ? logout() : login()">{{loggedIn ? 'Logout' : 'Login'}}</button>
   <!--Github Link-->
   <a href="https://github.com/Shawneh/cpu-case-study">
     <img src="../../../../assets/images/github.png" id="github-logo" href>
