@@ -7,6 +7,7 @@ import { AppMaterialModule } from './app-material.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DialogForgotPassword } from './components/login/login.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
@@ -16,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
   declarations: [
     AppComponent,
     DashboardComponent,
+    DialogForgotPassword,
     FooterComponent,
     HeaderComponent,
     LoginComponent,
@@ -28,6 +30,7 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogForgotPassword]
 })
 export class AppModule { }

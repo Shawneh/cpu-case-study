@@ -1,26 +1,58 @@
 @import '../../../styles.scss';
 
+.mat-card-content {
+    text-align: center;
+}
+
+.mat-card-header {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
 
 .demo-credentials {
     margin: 0 auto;
+    margin-top: 16px;
     text-align: center;
 }
 
 .form-input {
-    width: 256px; 
+    width: 384px; 
     margin: 0 auto;
 }
 
-.login-form-container {
+.link-button {
+    background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    /*border is optional*/
+    border-bottom:1px solid #444; 
+    cursor: pointer;
+}
+
+.cancel-btn {
+    margin-top: 16px;
+    margin-left: 16px;
+}
+
+#credential-card {
     width: 256px;
     margin: 0 auto;
-    margin-top: 64px;
-    padding: 32px 64px 92px 64px;
-    text-align: center;
+    margin-top: 8px;
+    background-color: $light-shade;
 }
 
-.submit-btn {
-    margin-top: 16px;
+#login-background {
+    background-color: $primary-default;
+    height: 85vh;
+    width: 100%;
+}
+
+#login-card {
+    width: 512px;
+    margin: 0 auto;
 }
 
 #login-header {

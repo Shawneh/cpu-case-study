@@ -15,9 +15,9 @@ export class AuthService {
   // Super Secure Credential Storage
   userList: IUser[] = [
     {
-      username: 'SU-Teacher',
+      username: 'SU-User',
       password: 'SecurePass',
-      role: 'Teacher',
+      role: 'User',
       coursesTaken: [10000, 10002]
     },
     {
