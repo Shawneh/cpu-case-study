@@ -1,7 +1,5 @@
 <div id="login-background">
 
-<p class="mat-display-2" id="login-header">Login</p>
-
 <mat-card id="login-card">
 <mat-card-header>
   <p class="mat-card-header">Login to your Account</p>
@@ -35,8 +33,20 @@
   <button mat-flat-button (click)="toggleCredentials()">{{state}} Credentials</button>
   <div [style.visibility]="isHidden ? 'hidden' : 'visible'">
     <mat-card id="credential-card">
-      <p class="mat-body-strong"><strong>Username:</strong> SU-User </p>
-      <p class="mat-body-strong"><strong>Password:</strong> SecurePass</p>
+      <div class="main-container">
+        <div class="left-container">
+          <p class="mat-subheader">User Screen</p>
+          <mat-divider [inset]="true"></mat-divider>
+          <p class="mat-body"><strong>Username:</strong> SU-User </p>
+          <p class="mat-body"><strong>Password:</strong> SecurePass</p>
+        </div>
+        <div class="right-container">
+          <p class="mat-subheader">Admin Screen (In Progress)</p>
+          <mat-divider [inset]="true"></mat-divider>
+          <p class="mat-body"><strong>Username:</strong> SU-Admin </p>
+          <p class="mat-body"><strong>Password:</strong> MoreSecurePass</p>
+        </div>
+      </div>
     </mat-card>
   </div>
 </div>

@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   isLoggedIn = false;
-  sessionUser = 'SU-Teacher';
+  sessionUser: string;
+  sessionRole: string;
   redirectUrl: string;
 
   // Super Secure Credential Storage
@@ -36,6 +37,7 @@ export class AuthService {
       if (username === user.username && password === user.password) {
         this.isLoggedIn = true;
         this.sessionUser = user.username;
+        this.sessionRole = user.role;
         if (this.redirectUrl === undefined) {
           this.router.navigate(['dashboard']);
         } else { this.router.navigate([this.redirectUrl]); }
@@ -48,6 +50,7 @@ export class AuthService {
   logout() {
     this.isLoggedIn = false;
     this.sessionUser = null;
+    this.sessionRole = null;
     this.router.navigate(['dashboard']);
   }
 
